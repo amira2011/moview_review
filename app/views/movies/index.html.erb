@@ -1,0 +1,19 @@
+
+
+<% if !user_signed_in? %>
+  <div class="jumbotron">
+    <h1>Your Favorite Movies Reviewed</h1>
+    <p> An online database of information related to films. Find ratings and reviews for the newest movie and TV shows</p>
+    <p><%= link_to "Sign Up To Write A Review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
+<% end %>
+
+<div class="row">
+  <% @movies.each do |movie| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= link_to image_tag(movie.image,{:style => "width:300px;height:300px;"}), movie  %>
+      </div>
+    </div>
+  <% end %>
+</div>
